@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './index.css';
+import Navbar from './componentes/navbar';
+import Hero from './componentes/hero';
+import Passeios from './componentes/passeios';
+import Gastronomia from './componentes/gastronomia';
+import Footer from './componentes/footer';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [filtro, setFiltro] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar open={menuOpen} onToggle={() => setMenuOpen(v => !v)} />
+      <main>
+        <Hero filtro={filtro} onFiltro={setFiltro} />
+        <Passeios />
+        <Gastronomia />
+      </main>
+      <Footer />
     </div>
   );
 }
