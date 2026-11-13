@@ -34,7 +34,7 @@ app.post("/cadastrarEvento", (req, res) => {
   db.query(SQL, [titulo, descricao, local, data, horario], (err, result) => {
     if (err) {
       console.log(err);
-      res.status(500).send(err);
+      res.status(500).send("Erro ao cadastrar evento");
     } else {
       res.send(result);
     }
