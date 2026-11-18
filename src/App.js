@@ -4,6 +4,8 @@ import Navbar from './componentes/navbar';
 import Hero from './componentes/hero';
 import Passeios from './componentes/passeios';
 import Gastronomia from './componentes/gastronomia';
+import Eventos from './componentes/eventos';
+import PublicarEvento from './componentes/publicarEvento';
 import Footer from './componentes/footer';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Hero filtro={filtro} onFiltro={setFiltro} />
         <Passeios />
         <Gastronomia />
+        <Eventos />
+        <PublicarEvento />
       </main>
       <Footer />
     </div>

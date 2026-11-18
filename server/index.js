@@ -8,7 +8,9 @@ const db = mysql.createPool({
   user: "root",
   password: "pev26",
   database: "vivapenedo",
+  dateStrings: true,
 });
+
 app.use(cors());
 app.use(express.json());
 
