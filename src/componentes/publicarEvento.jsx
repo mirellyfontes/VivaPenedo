@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 export default function PublicarEvento() {
   const [values, setValues] = useState({});
   const [mensagem, setMensagem] = useState('');
   const [erro, setErro] = useState('');
-  setTimeout(() => navigate('/eventos'), 1500);
-  const navigate = useNavigate();
   const handleChangeValues = (e) => {
     setValues((prevValue) => ({
       ...prevValue,

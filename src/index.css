@@ -428,6 +428,41 @@
   letter-spacing: 1.5px;
 }
 
+.form-evento {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+}
+
+.form-evento label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.form-evento input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-evento button {
+  align-self: flex-start;
+}
+
+.form-sucesso {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.form-erro {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
 main > .section:first-child {
   padding-top: calc(64px + clamp(40px, 6vw, 72px));
 }
