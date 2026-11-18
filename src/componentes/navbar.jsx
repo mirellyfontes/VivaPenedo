@@ -1,16 +1,20 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NAV = [
-  { nome: 'Passeios',    rota: '/passeios' },
-  { nome: 'Gastronomia', rota: '/gastronomia' },
-  { nome: 'Eventos',     rota: '/eventos' },
+  { nome: 'Passeios',    id: 'passeios' },
+  { nome: 'Gastronomia', id: 'gastronomia' },
+  { nome: 'Agenda',      id: 'agenda' },
 ];
 
 export default function Navbar({ open, onToggle }) {
   const navigate = useNavigate();
 
-  const handleClickPublicar = () => {
-    navigate('/eventos/publicar');
+  const irPara = (e, id) => {
+    e.preventDefault();
+    navigate('/');
+    setTimeout(() => {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }, 100);
     if (open) onToggle();
   };
 
@@ -27,8 +31,8 @@ export default function Navbar({ open, onToggle }) {
         </Link>
 
         <div className="nav-links">
-          {NAV.map(l => <NavLink key={l.rota} to={l.rota} end className="nav-link">{l.nome}</NavLink>)}
-          <button className="btn-orange" style={{marginLeft:10}} onClick={handleClickPublicar}>Publicar Evento</button>
+          {NAV.map(l => <a key={l.id} href={`#${l.id}`} className="nav-link" onClick={(e) => irPara(e, l.id)}>{l.nome}</a>)}
+          <a href="#publicar" className="btn-orange" style={{marginLeft:10, textDecoration:'none'}} onClick={(e) => irPara(e, 'publicar')}>Publicar Evento</a>
         </div>
 
         <button className={`burger${open ? ' open' : ''}`} onClick={onToggle} aria-label="Menu">
@@ -37,8 +41,8 @@ export default function Navbar({ open, onToggle }) {
       </div>
 
       <div className={`mobile-menu${open ? ' open' : ''}`}>
-        {NAV.map(l => <NavLink key={l.rota} to={l.rota} end onClick={onToggle}>{l.nome}</NavLink>)}
-        <button className="btn-orange" onClick={handleClickPublicar}>Publicar Evento</button>
+        {NAV.map(l => <a key={l.id} href={`#${l.id}`} onClick={(e) => irPara(e, l.id)}>{l.nome}</a>)}
+        <a href="#publicar" className="btn-orange" style={{textAlign:'center', color:'#fff', borderBottom:'none'}} onClick={(e) => irPara(e, 'publicar')}>Publicar Evento</a>
       </div>
     </header>
   )

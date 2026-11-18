@@ -12,7 +12,7 @@ export default function Footer() {
         ].map(({ col, links }) => (
           <div key={col} className="footer-col">
             <span className="footer-col-title">{col}</span>
-            {links.map(l => <a key={l} href="#" className="footer-link">{l}</a>)}
+            {links.map(l => <span key={l} className="footer-link">{l}</span>)}
           </div>
         ))}
       </div>

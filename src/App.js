@@ -6,8 +6,6 @@ import Footer from './componentes/footer';
 import Home from './paginas/home';
 import Passeios from './componentes/passeios';
 import Gastronomia from './componentes/gastronomia';
-import Eventos from './componentes/eventos';
-import PublicarEvento from './componentes/publicarEvento';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,10 +21,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/passeios" element={<Passeios />} />
-          <Route path="/gastronomia" element={<Gastronomia />} />
-          <Route path="/eventos" element={<Eventos />} />
-          <Route path="/eventos/publicar" element={<PublicarEvento />} />
+          <Route path="/passeios" element={<Passeios mostrarLink={false} />} />
+          <Route path="/gastronomia" element={<Gastronomia mostrarLink={false} />} />
         </Routes>
       </main>
       <Footer />

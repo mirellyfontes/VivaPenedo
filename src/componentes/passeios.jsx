@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { FaClock, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+
 const PASSEIOS = [
   { id:1, tag:'Mais vendido', destino:'Foz do São Francisco', titulo:'Penedo → Foz do São Francisco', duracao:'6h · Saída 8h',    vagas:'Restam 2 vagas', preco:'R$ 120', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcRj-oFVrVoUDbRlk9WtY8ndLzlyWxfqQ9Gsa3aotLYw&s=10' },
   
@@ -17,8 +20,8 @@ function CardPasseio({ p }) {
       </div>
       <div className="card-body">
         <div className="card-meta">
-          <div className="card-meta-row"><span>🕐</span>{p.duracao}</div>
-          <div className="card-meta-row"><span>📍</span>{p.destino}</div>
+          <div className="card-meta-row"><FaClock color="var(--orange)" />{p.duracao}</div>
+          <div className="card-meta-row"><FaMapMarkerAlt color="var(--orange)" />{p.destino}</div>
         </div>
         <div className="card-footer">
           <span className="card-vagas">{p.vagas}</span>
@@ -28,8 +31,7 @@ function CardPasseio({ p }) {
           </div>
         </div>
         <button type="button" className="btn-whatsapp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="white">
-          </svg>
+          <FaWhatsapp size={16} />
           Agendar via WhatsApp
         </button>
       </div>
@@ -37,7 +39,7 @@ function CardPasseio({ p }) {
   )
 }
 
-export default function Passeios() {
+export default function Passeios({ mostrarLink = true }) {
   return (
     <section id="passeios" className="section">
       <div className="section-inner">
@@ -46,7 +48,7 @@ export default function Passeios() {
             <p className="section-label">Turismo fluvial</p>
             <h2 className="section-title">Passeios no Velho Chico</h2>
           </div>
-          <a href="#" className="section-link">Ver todos →</a>
+          {mostrarLink && <Link to="/passeios" className="section-link">Ver todos →</Link>}
         </div>
         <div className="cards-row">
           {PASSEIOS.map(p => <CardPasseio key={p.id} p={p}/>)}

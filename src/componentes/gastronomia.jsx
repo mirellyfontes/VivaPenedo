@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+
 const RESTAURANTES = [
   { id:1, nome:'Maurício de Nassau',         esp:'Almoço, jantar e petiscos', nota:'4.9', aberto:true,  img:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/57/c4/e1/tardezinha-na-nassau.jpg?w=600&h=-1&s=1' },
   { id:2, nome:'Forte da Rocheira',   esp:'Almoço',    nota:'4.7', aberto:true,  img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBm_FrVhVfeEq-PYglsUS7ULet-lop_XPpgBy_ua0nNg&s=10' },
@@ -5,16 +8,16 @@ const RESTAURANTES = [
   { id:4, nome:'Vila Dão Pêdu', esp:'Petiscos & Bebidas',    nota:'4.8', aberto:true,  img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmg0YGEN4tjhcjaOrjSFB9QjlVyTuPoTwaWb7jyXCsTQ&s=10' },
 ]
 
-export default function Gastronomia() {
+export default function Gastronomia({ mostrarLink = true }) {
   return (
-    <section className="section section-alt">
+    <section id="gastronomia" className="section section-alt">
       <div className="section-inner">
         <div className="section-head">
           <div>
             <p className="section-label">Gastronomia</p>
             <h2 className="section-title">Onde comer em Penedo</h2>
           </div>
-          <a href="#" className="section-link">Ver todos →</a>
+          {mostrarLink && <Link to="/gastronomia" className="section-link">Ver todos →</Link>}
         </div>
         <div className="rest-grid">
           {RESTAURANTES.map(r => (
@@ -31,7 +34,7 @@ export default function Gastronomia() {
               <div className="rest-body">
                 <div className="rest-head">
                   <span className="rest-name">{r.nome}</span>
-                  <span className="rest-rating">★ {r.nota}</span>
+                  <span className="rest-rating"><FaStar size={11} color="var(--orange)" /> {r.nota}</span>
                 </div>
                 <p className="rest-esp">{r.esp}</p>
               </div>

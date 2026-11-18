@@ -466,3 +466,6 @@
 main > .section:first-child {
   padding-top: calc(64px + clamp(40px, 6vw, 72px));
 }
+section[id] {
+  scroll-margin-top: 64px;
+}

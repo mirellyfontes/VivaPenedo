@@ -1,7 +1,9 @@
+export default function Hero() {
 
-const FILTROS = ['Tudo','Aberto Agora','Passeios','Gastronomia','Eventos'];
+  const handleClickExplorar = () => {
+    document.getElementById('passeios').scrollIntoView({ behavior: 'smooth' });
+  };
 
-export default function Hero({ filtro, onFiltro }) {
   return (
     <section className="hero">
       <div className="hero-img-wrap">
@@ -18,24 +20,11 @@ export default function Hero({ filtro, onFiltro }) {
               <h1 className="hero-title">Descubra o<br/>Velho Chico</h1>
               <p className="hero-sub">Eventos, gastronomia e passeios fluviais na cidade mais histórica às margens do São Francisco.</p>
               <div className="hero-btns">
-                <button className="btn-orange-lg">Explorar agora →</button>
-                <a className="btn-ghost" href="#passeios">Ver passeios</a>
+                <button className="btn-orange-lg" onClick={handleClickExplorar}>Explorar agora →</button>
+                <a className="btn-ghost" href="#agenda">Ver agenda</a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="filtros-bar">
-        <div className="filtros-inner">
-          {FILTROS.map(f => {
-            const on = filtro === f || (f === 'Tudo' && !filtro)
-            return (
-              <button key={f} className={`filtro-btn${on ? ' active' : ''}`}
-                onClick={() => onFiltro(f === 'Tudo' ? '' : f)}
-              >{f}</button>
-            )
-          })}
         </div>
       </div>
     </section>

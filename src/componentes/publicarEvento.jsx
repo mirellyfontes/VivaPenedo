@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Axios from 'axios';
 
-export default function PublicarEvento() {
+export default function PublicarEvento({ onPublicado }) {
   const [values, setValues] = useState({});
   const [mensagem, setMensagem] = useState('');
   const [erro, setErro] = useState('');
@@ -31,6 +31,7 @@ export default function PublicarEvento() {
       .then(() => {
         setMensagem('Evento cadastrado com sucesso!');
         setErro('');
+        onPublicado();
       })
       .catch(() => {
         setErro('Erro ao cadastrar. Verifique se o servidor está rodando.');
@@ -39,7 +40,7 @@ export default function PublicarEvento() {
   };
 
   return (
-    <section className="section">
+    <section id="publicar" className="section section-alt">
       <div className="section-inner">
         <p className="section-label">Agenda</p>
         <h2 className="section-title">Publicar evento</h2>

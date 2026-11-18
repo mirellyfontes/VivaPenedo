@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import { FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
 const MESES = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 
 function CardEvento(props) {
-  const [ano, mes, dia] = props.data.split('-');
+  const [, mes, dia] = props.data.split('-');
 
 return (
   <article className="card-rest evento-card">
@@ -15,23 +16,24 @@ return (
     <div className="rest-body">
       <span className="rest-name">{props.titulo}</span>
       <p className="rest-esp">{props.descricao}</p>
-      <div className="card-meta-row">{props.local} · {props.horario.slice(0, 5)}</div>
+      <div className="card-meta-row"><FaMapMarkerAlt color="var(--orange)" />{props.local}</div>
+      <div className="card-meta-row"><FaClock color="var(--orange)" />{props.horario.slice(0, 5)}</div>
     </div>
   </article>
 );
 }
 
-export default function Eventos() {
+export default function Eventos({ atualizar }) {
   const [listaEventos, setListaEventos] = useState();
 
   useEffect(() => {
     Axios.get('http://localhost:3001/getEventos').then((response) => {
       setListaEventos(response.data);
     });
-  }, []);
+  }, [atualizar]);
 
   return (
-    <section className="section">
+    <section id="agenda" className="section">
       <div className="section-inner">
         <p className="section-label">Agenda</p>
         <h2 className="section-title">Próximos eventos</h2>
