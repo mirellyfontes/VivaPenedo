@@ -427,3 +427,7 @@
   font-size: 12px;
   letter-spacing: 1.5px;
 }
+
+main > .section:first-child {
+  padding-top: calc(64px + clamp(40px, 6vw, 72px));
+}
