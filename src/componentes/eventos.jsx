@@ -8,7 +8,7 @@ function CardEvento(props) {
 
 return (
   <article className="card-rest evento-card">
-    <div className="rest-grid">
+    <div className="evento-data">
       <span className="evento-dia">{dia}</span>
       <span className="evento-mes">{MESES[Number(mes) - 1]}</span>
     </div>
@@ -36,7 +36,7 @@ export default function Eventos() {
         <p className="section-label">Agenda</p>
         <h2 className="section-title">Próximos eventos</h2>
 
-        <div className="eventos-grid">
+        <div className="rest-grid">
           {typeof listaEventos !== 'undefined' &&
             listaEventos.map((value) => (
               <CardEvento
