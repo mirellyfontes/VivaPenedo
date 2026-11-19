@@ -398,3 +398,74 @@
       font-family: var(--font-body); font-size: 12px;
       color: rgba(255,255,255,0.25);
     }
+.evento-card {
+  display: flex;
+  background: var(--white);
+  cursor: default;
+}
+
+.evento-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  background: var(--orange);
+  color: #fff;
+}
+
+.evento-dia {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.evento-mes {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+.form-evento {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+}
+
+.form-evento label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.form-evento input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-evento button {
+  align-self: flex-start;
+}
+
+.form-sucesso {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.form-erro {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+main > .section:first-child {
+  padding-top: calc(64px + clamp(40px, 6vw, 72px));
+}
+section[id] {
+  scroll-margin-top: 64px;
+}
