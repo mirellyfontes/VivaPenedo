@@ -4,8 +4,8 @@ import './index.css';
 import Navbar from './componentes/navbar';
 import Footer from './componentes/footer';
 import Home from './paginas/home';
-import Passeios from './componentes/passeios';
-import Gastronomia from './componentes/gastronomia';
+import PaginaPasseios from './paginas/passeios';
+import PaginaGastronomia from './paginas/gastronomia';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,8 +21,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/passeios" element={<Passeios mostrarLink={false} />} />
-          <Route path="/gastronomia" element={<Gastronomia mostrarLink={false} />} />
+          <Route path="/passeios" element={<PaginaPasseios />} />
+          <Route path="/gastronomia" element={<PaginaGastronomia />} />
         </Routes>
       </main>
       <Footer />
